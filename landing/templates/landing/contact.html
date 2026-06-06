@@ -1,0 +1,168 @@
+{{% extends 'base.html' %}
+
+{% block title %}
+Contáctanos | Biblioteca Virtual
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero text-center py-5">
+
+    <div class="container">
+
+        <h1 class="display-3 fw-bold mb-3">
+            Contáctanos
+        </h1>
+
+        <p class="lead text-muted">
+            ¿Tienes dudas, sugerencias o necesitas ayuda?
+            Estamos listos para atenderte.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <!-- INFORMACIÓN -->
+        <div class="col-lg-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <h3 class="fw-bold mb-4">
+                        Información de Contacto
+                    </h3>
+
+                    <p>
+                        <i class="bi bi-envelope-fill me-2"></i>
+                        contacto@biblioteca.com
+                    </p>
+
+                    <p>
+                        <i class="bi bi-telephone-fill me-2"></i>
+                        +504 9999-9999
+                    </p>
+
+                    <p>
+                        <i class="bi bi-geo-alt-fill me-2"></i>
+                        Honduras
+                    </p>
+
+                    <hr>
+
+                    <h5 class="fw-bold">
+                        Síguenos
+                    </h5>
+
+                    <div class="d-flex gap-3 mt-3">
+
+                        <a href="#" class="text-decoration-none fs-4">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a href="#" class="text-decoration-none fs-4">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#" class="text-decoration-none fs-4">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+        <div class="col-lg-8">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="fw-bold mb-4">
+                        Envíanos un Mensaje
+                    </h2>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label for="name" class="form-label">
+                                    Nombre
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    placeholder="Ingresa tu nombre">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label for="email" class="form-label">
+                                    Correo Electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="ejemplo@correo.com">
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="message" class="form-label">
+                                Mensaje
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="message"
+                                rows="6"
+                                placeholder="Escribe tu mensaje aquí..."></textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-lg px-4">
+
+                            <i class="bi bi-send-fill me-2"></i>
+                            Enviar Mensaje
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
