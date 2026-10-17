@@ -1,0 +1,41 @@
+# Django / Python
+*.log
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de datos SQLite de desarrollo
+db.sqlite3
+*.sqlite3
+
+# Media y archivos subidos
+media/
+
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+env/
+
+# Entorno y secretos
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Distribución / build
+build/
+dist/
+*.egg-info/
+.eggs/
