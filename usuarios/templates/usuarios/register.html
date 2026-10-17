@@ -1,0 +1,210 @@
+{% extends 'usuarios/base.html' %}
+
+
+{% block title %}
+
+Registro | Biblioteca Virtual
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<section class="login-section">
+
+
+    <div class="container">
+
+
+        <div class="row justify-content-center">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-lg border-0 login-card">
+
+
+                    <div class="card-body p-5">
+
+
+                        <div class="text-center mb-4">
+
+
+                            <h2 class="fw-bold">
+                                📚 Crear Cuenta
+                            </h2>
+
+
+                            <p class="text-muted">
+                                Regístrate para acceder a la biblioteca virtual
+                            </p>
+
+
+                        </div>
+
+
+
+
+                        {% if messages %}
+
+
+                            {% for message in messages %}
+
+
+                                <div class="alert alert-info">
+
+                                    {{ message }}
+
+                                </div>
+
+
+                            {% endfor %}
+
+
+                        {% endif %}
+
+
+
+
+
+                        <form method="POST">
+
+
+                            {% csrf_token %}
+
+
+
+
+                            <div class="mb-3">
+
+
+                                <label class="form-label">
+                                    Usuario
+                                </label>
+
+
+                                <input
+                                type="text"
+                                name="username"
+                                class="form-control form-control-lg"
+                                placeholder="Ingrese su usuario"
+                                required>
+
+
+                            </div>
+
+
+
+
+
+                            <div class="mb-3">
+
+
+                                <label class="form-label">
+                                    Correo electrónico
+                                </label>
+
+
+                                <input
+                                type="email"
+                                name="email"
+                                class="form-control form-control-lg"
+                                placeholder="correo@ejemplo.com"
+                                required>
+
+
+                            </div>
+
+
+
+
+
+                            <div class="mb-3">
+
+
+                                <label class="form-label">
+                                    Contraseña
+                                </label>
+
+
+                                <input
+                                type="password"
+                                name="password"
+                                class="form-control form-control-lg"
+                                placeholder="Ingrese contraseña"
+                                required>
+
+
+                            </div>
+
+
+
+
+
+                            <button
+                            type="submit"
+                            class="btn btn-success btn-lg w-100">
+
+
+                                Registrarse
+
+
+                            </button>
+
+
+
+                        </form>
+
+
+
+
+
+                        <hr>
+
+
+
+
+
+                        <p class="text-center mb-0">
+
+
+                            ¿Ya tienes una cuenta?
+
+
+                            <a href="{% url 'login' %}"
+                               class="text-decoration-none">
+
+
+                                Inicia sesión
+
+
+                            </a>
+
+
+                        </p>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+{% endblock %}

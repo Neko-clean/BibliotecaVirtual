@@ -61,6 +61,53 @@
             margin-top:80px;
         }
 
+        .sidebar{
+            background:#1f2937;
+            color:white;
+            width:290px;
+        }
+
+        .sidebar .offcanvas-header{
+            background:#111827;
+        }
+
+        .avatar{
+            width:85px;
+            height:85px;
+            border-radius:50%;
+            background:#0d6efd;
+            color:white;
+            font-size:34px;
+            font-weight:bold;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+        }
+
+        .sidebar-item{
+            background:transparent;
+            color:white;
+            border:none;
+            padding:14px 24px;
+            transition:.3s;
+            font-size:16px;
+        }
+
+        .sidebar-item i{
+            width:30px;
+            font-size:18px;
+        }
+
+        .sidebar-item:hover{
+            background:#374151;
+            color:#fff;
+            padding-left:34px;
+        }
+
+        .sidebar hr{
+            border-color:rgba(255,255,255,.12);
+        }
     </style>
 
     {% block extra_css %}
@@ -70,83 +117,14 @@
 
 <body>
 
-    <!-- NAVBAR -->
+    {% include 'includes/navbar.html' %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-        <div class="container-fluid px-4">
-
-            <a class="navbar-brand fw-bold me-5" href="#">
-                Biblioteca Virtual
-            </a>
-
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menu">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="menu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Categorías
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">
-                            Contáctanos
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">
-                            Sobre Nosotros
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-    <!-- CONTENIDO -->
+    {% include 'includes/sidebar.html' %}
 
     {% block content %}
     {% endblock %}
 
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="container text-center">
-
-            <h4>
-                Biblioteca Virtual
-            </h4>
-
-            <p class="mb-0">
-                © 2026 Todos los derechos reservados
-            </p>
-
-        </div>
-
-    </footer>
+    {% include 'includes/footer.html' %}
 
     <script src="{% static 'bootstrap-5.0.2/js/bootstrap.bundle.min.js' %}">
     </script>

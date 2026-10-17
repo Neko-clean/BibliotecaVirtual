@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mis Favoritos | Biblioteca Virtual
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- ENCABEZADO -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+
+                <i class="bi bi-heart-fill text-danger"></i>
+
+                Mis Favoritos
+
+            </h2>
+
+            <p class="text-muted mb-0">
+
+                Aquí encontrarás los libros que has guardado como favoritos.
+
+            </p>
+
+        </div>
+
+        <a
+            href="{% url 'libros' %}"
+            class="btn btn-primary">
+
+            <i class="bi bi-book"></i>
+
+            Ver libros
+
+        </a>
+
+    </div>
+
+
+    <!-- LISTADO DE FAVORITOS -->
+
+    {% if favoritos %}
+
+        <div class="row g-4">
+
+            {% for favorito in favoritos %}
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <!-- PORTADA -->
+
+                        {% if favorito.libro.portada %}
+
+                            <img
+                                src="{{ favorito.libro.portada.url }}"
+                                class="card-img-top"
+                                alt="Portada de {{ favorito.libro.titulo }}"
+                                style="height: 300px; object-fit: cover;"
+                            >
+
+                        {% else %}
+
+                            <div
+                                class="d-flex align-items-center justify-content-center bg-light"
+                                style="height: 300px;">
+
+                                <div class="text-center text-muted">
+
+                                    <i
+                                        class="bi bi-book"
+                                        style="font-size: 4rem;">
+                                    </i>
+
+                                    <p class="mt-2 mb-0">
+                                        Sin portada
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- INFORMACIÓN -->
+
+                        <div class="card-body">
+
+                            <h5 class="card-title fw-bold">
+
+                                {{ favorito.libro.titulo }}
+
+                            </h5>
+
+                            <p class="text-muted mb-2">
+
+                                <i class="bi bi-person"></i>
+
+                                {{ favorito.libro.autor }}
+
+                            </p>
+
+                            <p class="mb-2">
+
+                                <span class="badge bg-secondary">
+
+                                    {{ favorito.libro.categoria.nombre }}
+
+                                </span>
+
+                            </p>
+
+                            {% if favorito.libro.anio_publicacion %}
+
+                                <p class="text-muted small mb-3">
+
+                                    <i class="bi bi-calendar"></i>
+
+                                    {{ favorito.libro.anio_publicacion }}
+
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- ACCIONES -->
+
+                        <div class="card-footer bg-white border-0 pb-3">
+
+                            <div class="d-flex gap-2">
+
+                                <a
+                                    href="{% url 'detalle_libro' favorito.libro.id %}"
+                                    class="btn btn-primary btn-sm flex-grow-1">
+
+                                    <i class="bi bi-eye"></i>
+
+                                    Ver detalles
+
+                                </a>
+
+                                <a
+                                    href="{% url 'toggle_favorito' favorito.libro.id %}"
+                                    class="btn btn-danger btn-sm"
+                                    title="Quitar de favoritos">
+
+                                    <i class="bi bi-heart-fill"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <!-- SIN FAVORITOS -->
+
+        <div class="card shadow-sm">
+
+            <div class="card-body text-center py-5">
+
+                <i
+                    class="bi bi-heart"
+                    style="font-size: 5rem;">
+                </i>
+
+                <h4 class="mt-4">
+
+                    Aún no tienes favoritos
+
+                </h4>
+
+                <p class="text-muted">
+
+                    Explora nuestro catálogo y guarda los libros
+                    que más te interesen.
+
+                </p>
+
+                <a
+                    href="{% url 'libros' %}"
+                    class="btn btn-primary">
+
+                    <i class="bi bi-book"></i>
+
+                    Explorar libros
+
+                </a>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

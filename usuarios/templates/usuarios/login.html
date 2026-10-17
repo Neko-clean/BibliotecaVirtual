@@ -1,0 +1,175 @@
+{% extends 'usuarios/base.html' %}
+
+{% block title %}
+Iniciar Sesión | Biblioteca Virtual
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="login-section">
+
+
+    <div class="container">
+
+
+        <div class="row justify-content-center">
+
+
+            <div class="col-md-5">
+
+
+                <div class="card shadow-lg border-0 login-card">
+
+
+                    <div class="card-body p-5">
+
+
+                        <div class="text-center mb-4">
+
+
+                            <h2 class="fw-bold">
+                                📚 Biblioteca Virtual
+                            </h2>
+
+
+                            <p class="text-muted">
+                                Inicia sesión para acceder a tus libros
+                            </p>
+
+
+                        </div>
+
+
+
+                        {% if messages %}
+
+                            {% for message in messages %}
+
+                                <div class="alert alert-danger">
+                                    {{ message }}
+                                </div>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+
+
+
+                        <form method="POST">
+
+
+                            {% csrf_token %}
+
+
+
+                            <div class="mb-3">
+
+
+                                <label class="form-label">
+                                    Usuario
+                                </label>
+
+
+                                <input
+                                type="text"
+                                name="username"
+                                class="form-control form-control-lg"
+                                placeholder="Ingrese su usuario"
+                                required>
+
+
+                            </div>
+
+
+
+
+                            <div class="mb-4">
+
+
+                                <label class="form-label">
+                                    Contraseña
+                                </label>
+
+
+                                <input
+                                type="password"
+                                name="password"
+                                class="form-control form-control-lg"
+                                placeholder="Ingrese su contraseña"
+                                required>
+
+
+                            </div>
+
+
+
+
+                            <button
+                            class="btn btn-primary btn-lg w-100">
+
+
+                                Iniciar Sesión
+
+
+                            </button>
+
+                            <div class="text-center mt-3">
+
+                                <a href="{% url 'forgot_password' %}">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+
+                            </div>
+
+
+                        </form>
+
+
+
+                        <hr>
+
+
+
+                        <p class="text-center mb-0">
+
+
+                            ¿No tienes una cuenta?
+
+
+                            <a href="{% url 'register' %}"
+                            class="text-decoration-none">
+
+
+                                Regístrate aquí
+
+
+                            </a>
+
+
+                        </p>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+{% endblock %}

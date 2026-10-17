@@ -1,0 +1,101 @@
+{% extends 'usuarios/base.html' %}
+
+
+{% block title %}
+
+Validar código
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="container py-5">
+
+
+<div class="row justify-content-center">
+
+
+<div class="col-md-5">
+
+
+<div class="card shadow login-card">
+
+
+<div class="card-body p-5">
+
+
+<h3 class="text-center mb-4">
+
+Código de recuperación
+
+</h3>
+
+
+
+{% if messages %}
+
+{% for message in messages %}
+
+<div class="alert alert-danger">
+
+{{ message }}
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+
+
+<form method="POST">
+
+
+{% csrf_token %}
+
+
+
+<input
+
+type="text"
+
+name="code"
+
+class="form-control mb-3"
+
+placeholder="Ingrese código"
+
+required>
+
+
+
+<button class="btn btn-primary w-100">
+
+Validar código
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+{% endblock %}
